@@ -1,0 +1,12 @@
+.buttons-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin: 10px;
+    color: white;
+    background-color: #0F0F0F;
+    border: 2px solid #FFFFFF;
+}
