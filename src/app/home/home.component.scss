@@ -1,12 +1,16 @@
+@use '../variables';
+
 .buttons-container {
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
 }
 
 button {
+    cursor: pointer;
+    font-family: inherit;
     margin: 10px;
-    color: white;
-    background-color: #0F0F0F;
-    border: 2px solid #FFFFFF;
+    color: variables.$white;
+    background-color: variables.$black-buttons;
+    border: variables.$border;
+    border-radius: variables.$border-radius;
 }

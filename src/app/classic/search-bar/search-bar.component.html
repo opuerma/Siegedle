@@ -1,0 +1,17 @@
+<div class="container-search-bar">
+
+    <div class="search-input">
+        <div class="search-bar">
+            <input type="text" #searchInput placeholder="Type any operator name..." [(ngModel)]="searchBar" 
+                (keydown.enter)="search()" (keyup)="findCoincidencesThatStartWith(searchBar, operatorNames)">
+        </div>
+        <div class="search-button" (click)="search()">
+            <img src="../../../assets/img/search-arrow.svg" alt="Try">
+        </div>
+    </div>
+
+    <div class="search-list" *ngIf="showList()" #listContainer>
+        <app-search-list [coincidences]="coincidences" (valueSelected)="updateSearchValue($event)"></app-search-list>
+    </div>
+    
+</div>

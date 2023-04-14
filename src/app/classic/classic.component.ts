@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Operator } from '../Operator';
+import { ServiceOperatorsService } from '../service-operators.service';
 
 @Component({
   selector: 'app-classic',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./classic.component.scss']
 })
 export class ClassicComponent {
+
+  constructor(private serviceOperators: ServiceOperatorsService) { }
 
 }

@@ -1,0 +1,55 @@
+@use '../../../variables' as v;
+
+.coincidences-list {
+    width: 100%;
+    height: v.$search-and-list-height;
+    background-color: v.$background-list;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: v.$border;
+    cursor: pointer;
+
+    &:last-child {
+        border-bottom-left-radius: v.$border-radius;
+        border-bottom-right-radius: v.$border-radius;
+    }
+
+    &:hover {
+        background-color: gray;
+    }
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.list-img {
+    width: 18%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        margin: 0;
+        padding: 0;
+        height: 80%;
+        width: fit-content;
+    }
+}
+
+.list-text {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}

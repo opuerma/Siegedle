@@ -1,0 +1,7 @@
+<ng-container *ngIf="coincidences.length > 0">
+    <div class="coincidences-list" *ngFor="let op of coincidences" (click)="moveIntoInput(op)">
+        <div class="list-img"><img src="../../../../assets/img/operators-svg/{{op.toLowerCase()}}.svg" alt=""></div>
+        <div class="list-text"><p>{{op}}</p></div>
+    </div>
+</ng-container>
+  

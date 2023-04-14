@@ -1,0 +1,113 @@
+@use '../../variables' as v;
+
+.container-search-bar {
+    margin: 50px 0px 50px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-input {
+    background-color: v.$black-buttons;
+    border: v.$border;
+    border-radius: v.$border-radius;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    height: v.$search-and-list-height;
+    width: 350px;
+}
+
+.search-bar {
+    height: 100%;
+    width: 80%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        font-family: v.$font;
+        font-weight: bold;
+        font-style: normal;
+        font-size: v.$font-size;
+        color: v.$white;
+
+        border: none;
+        width: 100%;
+        height: 80%;
+        background-color: v.$black-buttons;
+        caret-color: white;
+        padding-left: 15px;
+
+        &::placeholder {
+            font-weight: normal;
+            font-style: italic;
+            color: v.$placeholder-white;
+        }
+
+        &:focus {
+            outline: none;
+            border: none;
+            border-color: initial;
+            box-shadow: none;
+        }
+    }
+}
+
+.search-button {
+    height: 100%;
+    width: 20%;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        height: 32px;
+        width: 32px;
+    }
+}
+
+.search-list {
+    width: 100%;
+    height: fit-content;
+    max-height: v.$search-and-list-height * 4.5;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    border-bottom: v.$border;
+    border-bottom-left-radius: v.$border-radius;
+    border-bottom-right-radius: v.$border-radius;
+}
+
+::-webkit-scrollbar { // the scrollbar
+
+}
+
+::-webkit-scrollbar-button { // the buttons on the scrollbar (arrows pointing upwards and downwards)
+
+}
+
+::-webkit-scrollbar-thumb { // the draggable scrolling handle
+
+}
+
+::-webkit-scrollbar-track { // the track (progress bar) of the scrollbar
+
+}
+
+::-webkit-scrollbar-track-piece { // the track (progress bar) NOT covered by the handle
+
+}
+
+::-webkit-scrollbar-corner { // the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet
+
+}
+
+::-webkit-resizer { // the draggable resizing handle that appears at the bottom corner of some elements
+
+}
