@@ -14,6 +14,10 @@ import { TableOperatorsComponent } from './classic/table-operators/table-operato
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchListComponent } from './classic/search-bar/search-list/search-list.component';
+import { GameCompleteComponent } from './classic/game-complete/game-complete.component';
+import { ServiceOperatorsService } from './service-operators.service';
+import { ServiceGeneralFunctionsService } from './service-general-functions.service';
+import { ServiceDailyOperatorService } from './service-daily-operator.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { SearchListComponent } from './classic/search-bar/search-list/search-lis
     IntroductionComponent,
     SearchBarComponent,
     TableOperatorsComponent,
-    SearchListComponent
+    SearchListComponent,
+    GameCompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,11 @@ import { SearchListComponent } from './classic/search-bar/search-list/search-lis
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ServiceOperatorsService,
+    ServiceGeneralFunctionsService,
+    ServiceDailyOperatorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

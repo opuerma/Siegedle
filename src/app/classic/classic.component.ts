@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Operator } from '../Operator';
-import { ServiceOperatorsService } from '../service-operators.service';
+import { ServiceDailyOperatorService } from '../service-daily-operator.service';
 
 @Component({
   selector: 'app-classic',
@@ -9,6 +9,19 @@ import { ServiceOperatorsService } from '../service-operators.service';
 })
 export class ClassicComponent {
 
-  constructor(private serviceOperators: ServiceOperatorsService) { }
+  operators: Operator[] = [];
+  todaysOperator: Operator;
+  gameOver: boolean = false;
+
+
+  constructor(private serviceDailyOperator: ServiceDailyOperatorService) { }
+
+
+  ngOnInit() {
+    this.serviceDailyOperator.getGameOver().subscribe(value => {
+      this.gameOver = value;
+    });
+  }
+
 
 }

@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { take } from 'rxjs/operators';
+import { Operator } from '../../Operator';
 import { ServiceGeneralFunctionsService } from 'src/app/service-general-functions.service';
 import { ServiceOperatorsService } from 'src/app/service-operators.service';
+import { ServiceDailyOperatorService } from 'src/app/service-daily-operator.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -13,35 +14,30 @@ export class SearchBarComponent implements OnInit {
   operatorNames: string[] = [];
   coincidences: string[] = [];
   searchBar: string = '';
+  todaysOperator: Operator;
+
+  operators: Operator[];
 
   @ViewChild('searchInput') searchInput: ElementRef;
   @ViewChild('listContainer') listContainer: ElementRef;
 
-  constructor (private serviceOperators: ServiceOperatorsService, private serviceFunctions: ServiceGeneralFunctionsService) { }
-  
-  ngOnInit(): void {
-    this.serviceOperators.getOperatorNames().pipe(take(1)).subscribe(operatorNames => {
-      this.operatorNames = operatorNames;
-    });
+  constructor (
+    private serviceOperators: ServiceOperatorsService,
+    private serviceFunctions: ServiceGeneralFunctionsService,
+    private serviceDailyOperator: ServiceDailyOperatorService
+    ) { }
+
+  async ngOnInit() {
+    this.operators = await this.serviceOperators.getOperators();
+    this.operatorNames = this.getOperatorNames();
+    this.todaysOperator = this.serviceDailyOperator.getTodaysOperator();
+    console.log('search-bar | Todays op -> ', this.todaysOperator.name);
   }
 
 
-  search(): void {
-    this.getFirstCoincidence();
-
-    const operatorNamesLower = this.operatorNames.map(name => name.toLowerCase());
-    const operatorsNameTriedLower = this.operatorsNameTried.map(name => name.toLowerCase());
-    const searchBarLower = this.searchBar.toLowerCase();
-
-    if (this.serviceFunctions.findExactMatch(searchBarLower, operatorNamesLower) && !this.serviceFunctions.findExactMatch(searchBarLower, operatorsNameTriedLower)) {
-      
-      this.operatorsNameTried.push(searchBarLower);
-      this.serviceOperators.addOperatorTried(searchBarLower);
-      this.updateSearchValue('');
-      
-    }
+  private getOperatorNames(): string[] {
+    return this.operators.map(operator => operator.name);
   }
-
 
 
   // Gets the first coincidence and puts it into the input search bar.
@@ -51,6 +47,30 @@ export class SearchBarComponent implements OnInit {
       this.searchBar = firstCoincidence;
       this.searchInput.nativeElement.focus();
     }
+  }
+
+
+  compareAndAdd() {
+    const searchBarLower = this.searchBar.toLowerCase();
+    const operatorNamesLower = this.operatorNames.map(name => name.toLowerCase());
+    const operatorAlreadyTried = this.serviceOperators.getOperatorsTried().find(operator => operator.name.toLowerCase() === searchBarLower);
+
+    if (this.serviceFunctions.findExactMatch(searchBarLower, operatorNamesLower) && !operatorAlreadyTried) {
+      
+      this.serviceOperators.addOperatorTried(searchBarLower);
+      this.updateSearchValue('');
+
+      if (searchBarLower === this.todaysOperator.name.toLowerCase()) {
+        this.serviceDailyOperator.setGameOver(true);
+      }
+      
+    }
+  }
+
+
+  search(): void {
+    this.getFirstCoincidence();
+    this.compareAndAdd();
   }
 
 
@@ -64,12 +84,12 @@ export class SearchBarComponent implements OnInit {
 
   // Fills the array 'coincidences' with all the values from
   // the array 'arr' that start with the value 'val'
-  findCoincidencesThatStartWith(val: string, arr: string[]) {
+  findCoincidencesThatStartWith(val: string) {
     if (val.length > 0) {
       const lowerVal = val.toLowerCase();
-      this.coincidences = arr.filter(name => {
+      this.coincidences = this.operatorNames.filter(name => {
         const lowerName = name.toLowerCase();
-        return lowerName.startsWith(lowerVal) && !this.operatorsNameTried.includes(lowerName);
+        return lowerName.startsWith(lowerVal) && !this.serviceOperators.getOperatorsTried().some(operator => operator.name.toLowerCase() === lowerName);
       });
     } else {
       this.coincidences = [];

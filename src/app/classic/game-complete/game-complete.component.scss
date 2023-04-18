@@ -1,0 +1,62 @@
+@use '../../variables' as v;
+
+.container-game-complete {
+    border: v.$border;
+    border-radius: v.$border-radius;
+    background-color: v.$black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    width: 400px;
+    margin: 50px 0px 50px 0px;
+}
+
+.description {
+    h2 {
+        font-weight: bold;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    p {
+        font-weight: normal;
+        margin: 0;
+        margin-bottom: 30px;
+    }
+}
+
+.option-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    button {
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: normal;
+        font-size: v.$font-size - 2px;
+        color: v.$white;
+        background-color: v.$black-buttons;
+        border: v.$border;
+        border-radius: v.$border-radius;
+        height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:last-child {
+            padding: 8px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        img {
+            width: fit-content;
+            height: 100%;
+        }
+    }
+}

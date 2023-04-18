@@ -2,7 +2,9 @@
     
     <app-introduction></app-introduction>
 
-    <app-search-bar></app-search-bar>
+    <app-search-bar *ngIf="!gameOver"></app-search-bar>
+
+    <app-game-complete *ngIf="gameOver"></app-game-complete>
 
     <app-table-operators></app-table-operators>
     

@@ -1,5 +1,7 @@
-<div class="container-table">
-    <div class="table table-head" *ngIf="operatorsTried.length > 0">
+<div class="container-table" *ngIf="operatorsTried.length > 0">
+<!--<div class="container-table" *ngIf="operatorsTried$ | async as ops">-->
+    <!--<div class="table table-head" *ngIf="operatorsTried.length > 0">-->
+    <div class="table table-head" >
         <div>OPERATOR</div>
         <div>GENDER</div>
         <div>HEALTH</div>
@@ -43,7 +45,8 @@
             'match': this.serviceFunctions.compareArrays(op.affiliation, todaysOperator.affiliation) === 2 }" >
             <ul>
                 <li *ngFor="let item of this.serviceFunctions.getArrayFromNumber(op.affiliation.length); let i=index; last as isLast">
-                    {{ op.affiliation[i] }}<span *ngIf="!isLast">,</span>
+                    <span [class.reduce-font-size] = "this.serviceFunctions.compareValues(op.name, 'Nokk')">{{ op.affiliation[i] }}</span>
+                    <span *ngIf="!isLast">,</span>
                 </li>
             </ul>
         </div>
@@ -60,7 +63,7 @@
             'match': this.serviceFunctions.compareSeasons([op.release_year, op.release_season], [todaysOperator.release_year, todaysOperator.release_season]) === 1,
             'season-up': this.serviceFunctions.compareSeasons([op.release_year, op.release_season], [todaysOperator.release_year, todaysOperator.release_season]) === 2 }" >
             <ul>
-                <li>{{ op.season_name }}</li>
+                <li><span [class.reduce-font-size] = "this.serviceFunctions.compareValues(op.name, 'Brava')">{{ op.season_name }}</span></li>
                 <li *ngIf="op.release_year > 0">(Y{{ op.release_year }}S{{ op.release_season }})</li>
             </ul>
         </div>

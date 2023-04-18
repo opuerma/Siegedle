@@ -3,9 +3,9 @@
     <div class="search-input">
         <div class="search-bar">
             <input type="text" #searchInput placeholder="Type any operator name..." [(ngModel)]="searchBar" 
-                (keydown.enter)="search()" (keyup)="findCoincidencesThatStartWith(searchBar, operatorNames)">
+                (keydown.enter)="search()" (keyup)="findCoincidencesThatStartWith(searchBar)">
         </div>
-        <div class="search-button" (click)="search()">
+        <div class="search-button" (click)="compareAndAdd()">
             <img src="../../../assets/img/search-arrow.svg" alt="Try">
         </div>
     </div>

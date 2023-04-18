@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ServiceOperatorsService } from './service-operators.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceGeneralFunctionsService {
+
 
   constructor() { }
 
