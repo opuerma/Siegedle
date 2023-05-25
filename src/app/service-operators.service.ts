@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { BehaviorSubject, Observable, firstValueFrom } from 'rxjs';
 import { Operator } from './Operator';
 
 @Injectable({
@@ -56,13 +56,13 @@ export class ServiceOperatorsService {
   }
 
 
-  setGameOver(value: boolean) {
+  setGameOver(value: boolean): void {
     this.gameOver = value;
     this.gameOverSubject.next(this.gameOver);
   }
 
 
-  getGameOver() {
+  getGameOver(): Observable<boolean> {
     return this.gameOverSubject.asObservable();
   }
 

@@ -9,9 +9,12 @@ import { ServiceOperatorsService } from 'src/app/service-operators.service';
 })
 export class GameCompleteComponent {
   operator: Operator;
+  numberOfTries: number = 0;
 
-  constructor(private serviceOperators: ServiceOperatorsService) {
+  constructor(public serviceOperators: ServiceOperatorsService) {
     this.operator = this.serviceOperators.getChosenOperator();
+    this.numberOfTries = this.serviceOperators.getOperatorsTried().length;
   }
+
 
 }

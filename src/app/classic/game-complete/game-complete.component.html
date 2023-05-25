@@ -1,10 +1,16 @@
 <div class="container-game-complete">
-    <div class="description">
-        <h2>CORRECT!</h2>
-        <p>{{ operator.name }}</p>
-    </div>
     
-    <div class="option-buttons">
-        <button>SHARE</button>
+    <div><h1>VICTORY!</h1></div>
+
+    <div class="op-guessed">
+        <div class="op-img">
+            <img src="../../../assets/img/operators-svg/{{operator.name.toLowerCase()}}.svg" alt="">
+        </div>
+        <div class="op-name">
+            <div>You guessed</div>
+            <div><h2>{{ operator.name }}</h2></div>
+        </div>
     </div>
+
+    <div class="tries">Number of tries: <span>{{ numberOfTries }}</span></div>
 </div>

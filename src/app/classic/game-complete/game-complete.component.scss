@@ -1,49 +1,55 @@
 @use '../../variables' as v;
 
+
 .container-game-complete {
     border: v.$border;
     border-radius: v.$border-radius;
-    box-shadow: inset 0px 0px 30px 1px v.$green; // x y blurr spread
-    background-color: v.$black;
+    background: linear-gradient(#2F7018, #1e2328);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 30px;
-    width: 400px;
-    margin: 50px 0px 50px 0px;
+    width: v.$width-containers;
+    margin: 50px 0px;
 }
 
-.description {
-    h2 {
-        font-weight: bold;
-        margin: 0;
-        margin-bottom: 15px;
-    }
-    p {
-        font-weight: normal;
-        margin: 0;
-        margin-bottom: 30px;
-    }
-}
 
-.option-buttons {
-    width: 100%;
+.op-guessed {
+    width: 60%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
 
-    button {
-        cursor: pointer;
-        font-family: inherit;
-        font-weight: normal;
-        font-size: v.$font-size - 2px;
-        color: v.$white;
-        background-color: #1A8CD8;
-        border: v.$border;
-        border-radius: v.$border-radius;
-        height: 40px;
-        padding: 10px;
+    .op-img {
+        width: 50%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .op-name {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            margin: 0;
+            margin-top: 5px;
+        }
+    }
+}
+
+
+.tries {
+    margin-top: 5px;
+
+    span {
+        font-weight: bold;
     }
 }
