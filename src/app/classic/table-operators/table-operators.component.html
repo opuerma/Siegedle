@@ -17,9 +17,9 @@
             <img src="../../../assets/img/operators-svg/{{op.name.toLowerCase()}}.svg" alt="{{op.name}}">
         </div>
 
-        <div class="table-item" [ngClass]="this.serviceFunctions.compareValues(op.gender, todaysOperator.gender) ? 'match' : 'no-match'">{{ op.gender }}</div>
+        <div class="table-item" [ngClass]="this.serviceFunctions.compareValues(op.gender, chosenOperator.gender) ? 'match' : 'no-match'">{{ op.gender }}</div>
         
-        <div class="table-item item-health" [ngClass]="this.serviceFunctions.compareValues(op.health, todaysOperator.health) ? 'match' : 'no-match'">
+        <div class="table-item item-health" [ngClass]="this.serviceFunctions.compareValues(op.health, chosenOperator.health) ? 'match' : 'no-match'">
             <div class="health-container">
                 <img src="../../../assets/img/health-3.svg" alt="{{op.health}}">
             </div>
@@ -29,9 +29,9 @@
         </div>
 
         <div class="table-item" [ngClass]="{
-            'no-match': this.serviceFunctions.compareArrays(op.role, todaysOperator.role) === 0,
-            'partial-match': this.serviceFunctions.compareArrays(op.role, todaysOperator.role) === 1,
-            'match': this.serviceFunctions.compareArrays(op.role, todaysOperator.role) === 2 }" >
+            'no-match': this.serviceFunctions.compareArrays(op.role, chosenOperator.role) === 0,
+            'partial-match': this.serviceFunctions.compareArrays(op.role, chosenOperator.role) === 1,
+            'match': this.serviceFunctions.compareArrays(op.role, chosenOperator.role) === 2 }" >
             <ul>
                 <li *ngFor="let item of this.serviceFunctions.getArrayFromNumber(op.role.length); let i=index; last as isLast" class="li-table-item">
                     {{ op.role[i] }}<span *ngIf="!isLast">,</span>
@@ -40,9 +40,9 @@
         </div>
 
         <div class="table-item" [ngClass]="{
-            'no-match': this.serviceFunctions.compareArrays(op.affiliation, todaysOperator.affiliation) === 0,
-            'partial-match': this.serviceFunctions.compareArrays(op.affiliation, todaysOperator.affiliation) === 1,
-            'match': this.serviceFunctions.compareArrays(op.affiliation, todaysOperator.affiliation) === 2 }" >
+            'no-match': this.serviceFunctions.compareArrays(op.affiliation, chosenOperator.affiliation) === 0,
+            'partial-match': this.serviceFunctions.compareArrays(op.affiliation, chosenOperator.affiliation) === 1,
+            'match': this.serviceFunctions.compareArrays(op.affiliation, chosenOperator.affiliation) === 2 }" >
             <ul>
                 <li *ngFor="let item of this.serviceFunctions.getArrayFromNumber(op.affiliation.length); let i=index; last as isLast">
                     <span [class.reduce-font-size] = "this.serviceFunctions.compareValues(op.name, 'Nokk')">{{ op.affiliation[i] }}</span>
@@ -51,7 +51,7 @@
             </ul>
         </div>
 
-        <div class="table-item" [ngClass]="this.serviceFunctions.compareValues(op.squad, todaysOperator.squad) ? 'match' : 'no-match'">
+        <div class="table-item" [ngClass]="this.serviceFunctions.compareValues(op.squad, chosenOperator.squad) ? 'match' : 'no-match'">
             <div class="squad-container" *ngIf="!this.serviceFunctions.compareValues(op.squad, 'None')">
                 <img src="../../../assets/img/squads/{{op.squad.toLowerCase()}}.png" alt="{{op.squad}}">
             </div>
@@ -59,9 +59,9 @@
         </div>
         
         <div class="table-item" [ngClass]="{
-            'season-down': this.serviceFunctions.compareSeasons([op.release_year, op.release_season], [todaysOperator.release_year, todaysOperator.release_season]) === 0,
-            'match': this.serviceFunctions.compareSeasons([op.release_year, op.release_season], [todaysOperator.release_year, todaysOperator.release_season]) === 1,
-            'season-up': this.serviceFunctions.compareSeasons([op.release_year, op.release_season], [todaysOperator.release_year, todaysOperator.release_season]) === 2 }" >
+            'season-down': this.serviceFunctions.compareSeasons([op.release_year, op.release_season], [chosenOperator.release_year, chosenOperator.release_season]) === 0,
+            'match': this.serviceFunctions.compareSeasons([op.release_year, op.release_season], [chosenOperator.release_year, chosenOperator.release_season]) === 1,
+            'season-up': this.serviceFunctions.compareSeasons([op.release_year, op.release_season], [chosenOperator.release_year, chosenOperator.release_season]) === 2 }" >
             <ul>
                 <li><span [class.reduce-font-size] = "this.serviceFunctions.compareValues(op.name, 'Brava')">{{ op.season_name }}</span></li>
                 <li *ngIf="op.release_year > 0">(Y{{ op.release_year }}S{{ op.release_season }})</li>

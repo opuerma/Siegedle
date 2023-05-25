@@ -1,5 +1,8 @@
 @use '../../variables' as v;
 
+$duration: 0.75s;
+$delay: 500ms;
+
 .container-table {
     height: fit-content;
     width: v.$max-width;
@@ -72,8 +75,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center;    
 }
+
+.match {
+    background-color: v.$green;
+}
+.no-match {
+    background-color: v.$red;
+}
+.partial-match {
+    background-color: v.$orange;
+}
+
 
 .season-up {
     background-color: v.$red;
@@ -96,15 +110,6 @@
     background-image: url('../../../assets/img/arrow.svg');
 }
 
-.match {
-    background-color: v.$green;
-}
-.no-match {
-    background-color: v.$red;
-}
-.partial-match {
-    background-color: v.$orange;
-}
 
 .item-op {
     background-color: black;

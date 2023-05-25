@@ -11,12 +11,18 @@
 .search-input {
     background-color: v.$black-buttons;
     border: v.$border;
-    border-radius: v.$border-radius;
     padding: 0;
     display: flex;
     flex-direction: row;
     height: v.$search-and-list-height;
     width: v.$width-search-bar;
+}
+.rounded-border {
+    border-radius: v.$border-radius;
+}
+.semi-rounded-border {
+    border-top-left-radius: v.$border-radius;
+    border-top-right-radius: v.$border-radius;
 }
 
 .search-bar {
@@ -70,6 +76,13 @@
     img {
         height: 32px;
         width: 32px;
+    }
+
+    &:hover {
+        img {
+            height: 34px;
+            width: 34px;
+        }
     }
 }
 

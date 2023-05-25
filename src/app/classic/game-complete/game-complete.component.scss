@@ -3,6 +3,7 @@
 .container-game-complete {
     border: v.$border;
     border-radius: v.$border-radius;
+    box-shadow: inset 0px 0px 30px 1px v.$green; // x y blurr spread
     background-color: v.$black;
     display: flex;
     flex-direction: column;
@@ -39,24 +40,10 @@
         font-weight: normal;
         font-size: v.$font-size - 2px;
         color: v.$white;
-        background-color: v.$black-buttons;
+        background-color: #1A8CD8;
         border: v.$border;
         border-radius: v.$border-radius;
         height: 40px;
-        padding-left: 10px;
-        padding-right: 10px;
-
-        &:last-child {
-            padding: 8px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-    
-        img {
-            width: fit-content;
-            height: 100%;
-        }
+        padding: 10px;
     }
 }

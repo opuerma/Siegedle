@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Operator } from '../../Operator';
 import { ServiceGeneralFunctionsService } from 'src/app/service-general-functions.service';
 import { ServiceOperatorsService } from 'src/app/service-operators.service';
-import { ServiceDailyOperatorService } from 'src/app/service-daily-operator.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -14,7 +13,7 @@ export class SearchBarComponent implements OnInit {
   operatorNames: string[] = [];
   coincidences: string[] = [];
   searchBar: string = '';
-  todaysOperator: Operator;
+  chosenOperator: Operator;
 
   operators: Operator[];
 
@@ -23,15 +22,13 @@ export class SearchBarComponent implements OnInit {
 
   constructor (
     private serviceOperators: ServiceOperatorsService,
-    private serviceFunctions: ServiceGeneralFunctionsService,
-    private serviceDailyOperator: ServiceDailyOperatorService
+    private serviceFunctions: ServiceGeneralFunctionsService
     ) { }
 
   async ngOnInit() {
     this.operators = await this.serviceOperators.getOperators();
     this.operatorNames = this.getOperatorNames();
-    this.todaysOperator = this.serviceDailyOperator.getTodaysOperator();
-    console.log('search-bar | Todays op -> ', this.todaysOperator.name);
+    this.chosenOperator = await this.serviceOperators.getChosenOperator();
   }
 
 
@@ -60,8 +57,8 @@ export class SearchBarComponent implements OnInit {
       this.serviceOperators.addOperatorTried(searchBarLower);
       this.updateSearchValue('');
 
-      if (searchBarLower === this.todaysOperator.name.toLowerCase()) {
-        this.serviceDailyOperator.setGameOver(true);
+      if (searchBarLower === this.chosenOperator.name.toLowerCase()) {
+        this.serviceOperators.setGameOver(true);
       }
       
     }

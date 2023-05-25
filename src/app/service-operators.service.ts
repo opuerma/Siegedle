@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { Operator } from './Operator';
-import { ServiceDailyOperatorService } from './service-daily-operator.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +10,12 @@ export class ServiceOperatorsService {
   private _jsonURL = '../assets/operators.json';
   private operators: Operator[] = [];
   private operatorsTried: Operator[] = [];
-  //todaysOperator: Operator;
+  private chosenOperator: Operator;
+  gameOver: boolean = false;
+  gameOverSubject = new BehaviorSubject<boolean>(this.gameOver);
 
 
-  constructor(private http: HttpClient, private serviceDailyOperator: ServiceDailyOperatorService) { }
+  constructor(private http: HttpClient) { }
 
   async getOperators(): Promise<Operator[]> {
     if (this.operators && this.operators.length > 0) {
@@ -23,13 +24,18 @@ export class ServiceOperatorsService {
       const operators = await firstValueFrom(this.http.get<Operator[]>(this._jsonURL));
       this.operators = operators;
 
-      //this.todaysOperator = this.operators[Math.floor(Math.random() * this.operators.length)];
-      if (!this.serviceDailyOperator.getTodaysOperator()) {
-        this.serviceDailyOperator.todaysOperator = this.operators[Math.floor(Math.random() * this.operators.length)];
+      if (!this.chosenOperator) {
+        this.chosenOperator = this.operators[Math.floor(Math.random() * this.operators.length)];
       }
       
       return operators;
     }
+  }
+
+
+  getChosenOperator(): Operator {
+    console.log(this.chosenOperator);
+    return this.chosenOperator;
   }
 
 
@@ -47,6 +53,17 @@ export class ServiceOperatorsService {
 
   getOperatorsTried(): Operator[] {
     return this.operatorsTried;
+  }
+
+
+  setGameOver(value: boolean) {
+    this.gameOver = value;
+    this.gameOverSubject.next(this.gameOver);
+  }
+
+
+  getGameOver() {
+    return this.gameOverSubject.asObservable();
   }
 
 

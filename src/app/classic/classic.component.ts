@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Operator } from '../Operator';
-import { ServiceDailyOperatorService } from '../service-daily-operator.service';
+import { ServiceOperatorsService } from '../service-operators.service';
 
 @Component({
   selector: 'app-classic',
@@ -8,17 +7,15 @@ import { ServiceDailyOperatorService } from '../service-daily-operator.service';
   styleUrls: ['./classic.component.scss']
 })
 export class ClassicComponent {
-
-  operators: Operator[] = [];
-  todaysOperator: Operator;
+  
   gameOver: boolean = false;
 
 
-  constructor(private serviceDailyOperator: ServiceDailyOperatorService) { }
+  constructor(private serviceOperator: ServiceOperatorsService) { }
 
 
   ngOnInit() {
-    this.serviceDailyOperator.getGameOver().subscribe(value => {
+    this.serviceOperator.getGameOver().subscribe(value => {
       this.gameOver = value;
     });
   }
