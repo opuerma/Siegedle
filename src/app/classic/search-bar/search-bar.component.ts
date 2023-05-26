@@ -79,8 +79,7 @@ export class SearchBarComponent implements OnInit {
   }
   
 
-  // Fills the array 'coincidences' with all the values from
-  // the array 'arr' that start with the value 'val'
+  // Fills the array 'coincidences' with all the operators that start with the value 'val'
   findCoincidencesThatStartWith(val: string) {
     if (val.length > 0) {
       const lowerVal = val.toLowerCase();
