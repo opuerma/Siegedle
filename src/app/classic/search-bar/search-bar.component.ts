@@ -93,7 +93,7 @@ export class SearchBarComponent implements OnInit {
   }
 
 
-  // Return true if the input text value has any coincidences 
+  // Return true if the input text value has any coincidences
   showList(): boolean {
     const { searchBar, coincidences } = this;
     return !!searchBar && !!coincidences?.length;
