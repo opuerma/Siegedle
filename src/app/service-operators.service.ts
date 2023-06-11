@@ -66,5 +66,4 @@ export class ServiceOperatorsService {
     return this.gameOverSubject.asObservable();
   }
 
-
 }
