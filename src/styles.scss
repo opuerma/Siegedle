@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @use './app/variables' as v;
 
+html {
+    scroll-behavior: smooth;
+}
+
 body, html {
     font-family: v.$font;
     font-weight: normal;

@@ -1,6 +1,15 @@
 @use '../../variables' as v;
 
 
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
 .container-game-complete {
     border: v.$border;
     border-radius: v.$border-radius;
