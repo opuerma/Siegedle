@@ -26,6 +26,8 @@ export class GameCompleteComponent implements OnInit {
     this.confetti();
   }
 
+  
+  // https://www.npmjs.com/package/canvas-confetti
 
   public confetti(): void {
     const canvas = this.renderer2.createElement('canvas');
@@ -102,7 +104,7 @@ export class GameCompleteComponent implements OnInit {
         requestAnimationFrame(frame);
       }
     }());*/
- 
+
   }
 
 }
