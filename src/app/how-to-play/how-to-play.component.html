@@ -1,0 +1,142 @@
+<div class="bg" (click)="serviceGeneralFunctions.toggleHowToPlay()"></div>
+
+<div class="container-howtoplay">
+
+    <div class="close" (click)="serviceGeneralFunctions.toggleHowToPlay()">X</div>
+
+    <div class="howtoplay-box">
+
+        <div class="title">How to play</div>
+        <div class="text">
+            <p>Guess the Operator.</p>
+            <p>
+                The operator is selected randomly every time the page is loaded from all the available operators of 
+                the Ubisoft's game “Tom Clancy's: Rainbow Six Siege”. There are currently <span class="italic bold">66</span> 
+                operators, the last added being <span class="italic bold">Solis</span>. It changes every time you refresh the page.
+            </p>
+            <p>After each guess, the color of the tiles will change to show how close your guess was to the Operator.</p>
+            <p><span class="green bold">Green</span> indicates the property is an exact match.</p>
+            <p><span class="orange bold">Orange</span> indicates partial match.</p>
+            <p><span class="red bold">Red</span> indicates there is no match.</p>
+            <p><span class="bold">Arrows</span> indicates the answer property is above or below your guess.</p>
+        </div>
+
+        <div class="title">Properties</div>
+        <div class="text">
+            <p>Here is the details of each of the properties columns:</p>
+            <p><span class="bold">Gender:</span> Male, Female or Other.</p>
+            <p><span class="bold">Health:</span> One (100), Two (110) or Three (125).</p>
+            <p><span class="bold">Role:</span> Intel, Support, Map control, Anti-gadget, etc...</p>
+            <p><span class="bold">Affiliation:</span> S.A.S., SWAT, GIGN, Spetsnaz, etc...</p>
+            <p><span class="bold">Squad:</span> Redhammer, Viperstrike, Wolfguard, etc...</p>
+            <p><span class="bold">Release Season:</span> Launch, Black Ice, Dust Line, Skull Rain, etc...</p>
+        </div>
+
+        <div class="title">Example</div>
+        <div class="text">
+            <p>Consider the correct answer is <span class="bold">Amaru</span>.</p>
+            <p>If you enter <span class="bold">Ash</span>, these properties will appear:</p>
+
+            <div class="div-table">
+                <div class="table table-content table-1">
+        
+                    <div class="table-item item-op">
+                        <img src="../../assets/img/operators-svg/ash.svg" alt="Ash">
+                    </div>
+            
+                    <div class="table-item match">Female</div>
+                    
+                    <div class="table-item item-health no-match">
+                        <div class="health-container">
+                            <img src="../../assets/img/health-3.svg" alt="1">
+                        </div>
+                    </div>
+            
+                    <div class="table-item partial-match" >
+                        <ul>
+                            <li class="li-table-item">Breach,</li>
+                            <li class="li-table-item">Front line</li>
+                        </ul>
+                    </div>
+            
+                    <div class="table-item no-match" >
+                        <ul>
+                            <li>SWAT</li>
+                        </ul>
+                    </div>
+            
+                    <div class="table-item match">
+                        <div class="squad-container">
+                            <img src="../../assets/img/squads/redhammer.png" alt="Redhammer">
+                        </div>
+                    </div>
+                    
+                    <div class="table-item season-up">
+                        <ul>
+                            <li>Launch</li>
+                        </ul>
+                    </div>
+            
+                </div>
+            </div>
+
+            <p><span class="green bold">Gender:</span> It is an exact match, they are both female.</p>
+            <p><span class="red bold">Health:</span> It is not a match since Amaru has 2 health.</p>
+            <p><span class="orange bold">Role:</span> It is partially correct since Amaru is also Front line, but not the others.</p>
+            <p><span class="red bold">Affiliation:</span> It is not correct since Amaru is not from the SWAT.</p>
+            <p><span class="green bold">Squad:</span> It is correct, they are both Redhammers.</p>
+            <p><span class="red bold">Release Season:</span> Amaru's release season is after Launch.</p>
+            <br>
+            <p>If you enter <span class="bold">Amaru</span>, here is what would come up:</p>
+
+            <div class="div-table">
+                <div class="table table-content table-2">
+        
+                    <div class="table-item item-op">
+                        <img src="../../assets/img/operators-svg/amaru.svg" alt="Amaru">
+                    </div>
+            
+                    <div class="table-item match">Female</div>
+                    
+                    <div class="table-item item-health match">
+                        <div class="health-container">
+                            <img src="../../assets/img/health-3.svg" alt="2">
+                        </div>
+                        <div class="health-container">
+                            <img src="../../assets/img/health-3.svg">
+                        </div>
+                    </div>
+            
+                    <div class="table-item match">
+                        <ul>
+                            <li class="li-table-item">Front line,</li>
+                            <li class="li-table-item">Map control</li>
+                        </ul>
+                    </div>
+            
+                    <div class="table-item match" >
+                        <ul>
+                            <li>APCA</li>
+                        </ul>
+                    </div>
+            
+                    <div class="table-item match">
+                        <div class="squad-container">
+                            <img src="../../assets/img/squads/redhammer.png" alt="Redhammer">
+                        </div>
+                    </div>
+                    
+                    <div class="table-item match">
+                        <ul>
+                            <li>Ember Rise</li>
+                            <li>(Y4S3)</li>
+                        </ul>
+                    </div>
+            
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

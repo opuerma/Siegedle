@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServiceGeneralFunctionsService {
+  showHowToPlay: boolean = false;
 
 
   constructor() { }
@@ -73,6 +74,13 @@ export class ServiceGeneralFunctionsService {
   }
   
   
+  toggleHowToPlay(): void {
+    this.showHowToPlay = !this.showHowToPlay;
+  }
+
+  getHowToPlay(): boolean {
+    return this.showHowToPlay;
+  }
 
 
 }

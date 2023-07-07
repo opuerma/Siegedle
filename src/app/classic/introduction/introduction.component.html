@@ -8,9 +8,13 @@
         
         <div class="option-buttons">
             <button>View operators</button>
-            <button>How to play?</button>
+            <button (click)="serviceGeneralFunctions.toggleHowToPlay()">How to play?</button>
             <!--<button><img src="../../../assets/img/settings-icon.svg" alt="Settings"></button>-->
         </div>
 
     </div>
+</div>
+
+<div class="div-howtoplay" *ngIf="serviceGeneralFunctions.getHowToPlay()">
+    <app-how-to-play></app-how-to-play>  
 </div>
