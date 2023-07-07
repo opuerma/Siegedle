@@ -34,7 +34,6 @@ export class ServiceOperatorsService {
 
 
   getChosenOperator(): Operator {
-    console.log(this.chosenOperator);
     return this.chosenOperator;
   }
 
