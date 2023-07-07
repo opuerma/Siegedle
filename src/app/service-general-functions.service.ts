@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ServiceGeneralFunctionsService {
   showHowToPlay: boolean = false;
+  showViewOperators: boolean = false;
 
 
   constructor() { }
@@ -77,9 +78,16 @@ export class ServiceGeneralFunctionsService {
   toggleHowToPlay(): void {
     this.showHowToPlay = !this.showHowToPlay;
   }
-
   getHowToPlay(): boolean {
     return this.showHowToPlay;
+  }
+
+  
+  toggleViewOperators(): void {
+    this.showViewOperators = !this.showViewOperators;
+  }
+  getViewOperators(): boolean {
+    return this.showViewOperators;
   }
 
 

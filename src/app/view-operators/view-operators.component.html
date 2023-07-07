@@ -1,0 +1,23 @@
+<div class="bg" (click)="serviceGeneralFunctions.toggleViewOperators()"></div>
+
+<div class="container-viewoperators">
+
+    <div class="close" (click)="serviceGeneralFunctions.toggleViewOperators()">X</div>
+
+    <div class="viewoperators-box">
+
+        <div class="title">Operators</div>
+
+        <div class="cartas-container">
+
+            <div class="carta" *ngFor="let op of operators">
+                <div class="img-op">
+                    <img src="../../assets/img/operators-svg/{{op.name.toLowerCase()}}.svg" alt="{{op.name}}">
+                </div>
+                <div class="name">{{op.name}}</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -29,8 +29,6 @@ export class SearchBarComponent implements OnInit {
     this.operators = await this.serviceOperators.getOperators();
     this.operatorNames = this.getOperatorNames();
     this.chosenOperator = await this.serviceOperators.getChosenOperator();
-
-    console.log(this.operators.length);
   }
 
 

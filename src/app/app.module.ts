@@ -16,6 +16,7 @@ import { GameCompleteComponent } from './classic/game-complete/game-complete.com
 import { ServiceOperatorsService } from './service-operators.service';
 import { ServiceGeneralFunctionsService } from './service-general-functions.service';
 import { HowToPlayComponent } from './how-to-play/how-to-play.component';
+import { ViewOperatorsComponent } from './view-operators/view-operators.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HowToPlayComponent } from './how-to-play/how-to-play.component';
     TableOperatorsComponent,
     SearchListComponent,
     GameCompleteComponent,
-    HowToPlayComponent
+    HowToPlayComponent,
+    ViewOperatorsComponent
   ],
   imports: [
     BrowserModule,
