@@ -28,3 +28,21 @@ h1, h2 {
     margin: 0;
     margin-bottom: 15px;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: v.$background-list;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888888;
+
+    &:hover {
+        background: #666666;
+    }
+}

@@ -8,6 +8,8 @@ $delay: 500ms;
     width: v.$max-width;
     max-width: v.$max-width;
     min-width: v.$min-width;
+    overflow-x: auto;
+    overflow-y: hidden;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -16,7 +18,7 @@ $delay: 500ms;
 
 .table {
     font-weight: bold;
-    width: 100%;
+    width: v.$max-width;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -154,5 +156,17 @@ $delay: 500ms;
     img {
         height: 75%;
         object-fit: cover;
+    }
+}
+
+
+
+@media only screen and (max-width: 700px) {
+    .container-table {
+        width: 90vw;
+        padding-bottom: 10px;
+    }
+    .table {
+        width: fit-content;
     }
 }

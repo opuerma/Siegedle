@@ -6,7 +6,8 @@ canvas {
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%;
+    width: 96vw;
+    pointer-events:none;
 }
 
 
@@ -60,5 +61,14 @@ canvas {
 
     span {
         font-weight: bold;
+    }
+}
+
+
+
+@media only screen and (max-width: 450px) {
+    .container-game-complete {
+        //margin: 0 auto;
+        width: 65vw;
     }
 }

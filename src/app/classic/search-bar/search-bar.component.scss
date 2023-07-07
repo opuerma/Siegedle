@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;
 }
 
 .search-input {
@@ -101,30 +102,12 @@
     border-bottom-right-radius: v.$border-radius;
 }
 
-::-webkit-scrollbar { // the scrollbar
 
-}
-
-::-webkit-scrollbar-button { // the buttons on the scrollbar (arrows pointing upwards and downwards)
-
-}
-
-::-webkit-scrollbar-thumb { // the draggable scrolling handle
-
-}
-
-::-webkit-scrollbar-track { // the track (progress bar) of the scrollbar
-
-}
-
-::-webkit-scrollbar-track-piece { // the track (progress bar) NOT covered by the handle
-
-}
-
-::-webkit-scrollbar-corner { // the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet
-
-}
-
-::-webkit-resizer { // the draggable resizing handle that appears at the bottom corner of some elements
-
+@media only screen and (max-width: 450px) {
+    .search-input {
+        width: 90vw;
+    }
+    .search-list {
+        width: 90.5vw; // +0.5px from the border between the inpunt
+    }
 }
